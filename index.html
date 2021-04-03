@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            JS
+        </title>
+        <script type = "text/javascript">
+            function func()
+            {
+                var name=document.forms["form1"]["Name"];
+                var age=document.forms["form1"]["Age"];
+                var email=document.forms["form1"]["Email"];
+                var password=document.forms["form1"]["Password"];
+
+                if(name.value.length < 3)
+                {
+                    window.alert("Name is SHORT")
+                    name.focus();
+                    return false;
+                }
+                if(age.value=="")
+                {
+                    window.alert("Age is INVALID");
+                    age.focus();
+                    return false;
+                }
+                if(email.value.search(/...*@...*\....*/))
+                {
+                    window.alert("NOT dsd VALID EMAIL");
+                    email.focus();
+                    return false;
+                }
+                if(password.value.length < 6)
+                {
+                    window.alert("Password is SHORT");
+                    password.focus();
+                    return false;
+                }
+
+                window.alert("FORM SUBMITTED")
+                return false;
+            }
+        </script>
+        <style>
+            table.center {
+                margin-left: auto; 
+                 margin-right: auto;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 style="text-align: center;">FORM</h1>
+        <table class="center">
+            <form name="form1" action="javascript:void(0)" onsubmit="return func()" method="post">
+                <tr>
+                    <th><label>Name: </label> </th>
+                    <td><textarea id='Name' type="text" size=30 name="Name"></textarea></td>
+                </tr>
+              
+                <tr>
+                    <th><button id="Share" type="submit" value="Send" name="Submit">submit</button></th>
+                    <td><button type="reset" value="Reset" name="Reset">reset</button></td>
+                </tr>
+
+        </form>
+    </table>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/index.js"></script>
+
+    </body>
+</html>
